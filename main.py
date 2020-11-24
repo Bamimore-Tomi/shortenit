@@ -28,7 +28,7 @@ def shorten(url : HttpUrl):
     id_ = ''.join(random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ') for i in range(4))
     if db.urls.find_one({'url':url})!=None:
         id_ = db.urls.find_one({'url':url})['id']
-        url_ = 'https://maphor.herokuapp.com/p'+id_
+        url_ = 'https://maphor.herokuapp.com/p/'+id_
         return url_
     else:
         db.urls.insert_one({'id':id_,'url':url})
