@@ -17,7 +17,10 @@ DB_NAME = os.getenv('DB_NAME')
 client = pymongo.MongoClient(DB_URL)
 db = client[DB_NAME]
 
-app = FastAPI()
+app = FastAPI(title='Url Shortner',
+              description="This api endpoint helps your shorten long urls.",
+              version="1.0.0"
+              )
 
 @app.get('/')
 def home():
